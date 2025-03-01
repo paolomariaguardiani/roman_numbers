@@ -5,11 +5,11 @@ roman_tens = ["X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"]
 roman_hundreds = ["C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"]
 roman_thousands = ["M", "MM", "MMM"]
 
-for i in range(100):  # this clear the screen! this is not my idea!
-    print("\n")
+# for i in range(100):  # this clear the screen! this is not my idea!
+#     print("\n")
 
 sorted_number = random.randint(1, 3999)
-print(sorted_number)
+# print(sorted_number)
 
 
 def change_number(number):
@@ -68,7 +68,7 @@ def change_number(number):
     return result
 
 
-print(f"Convert this number ---> {sorted_number} in roman numbers: ")
+print(f"Convert this number ---> {sorted_number} <--- in roman numbers: ")
 user_number = input().upper()
 
 roman_number = change_number(sorted_number)
