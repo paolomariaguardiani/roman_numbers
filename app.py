@@ -68,7 +68,13 @@ def change_number(number):
     return result
 
 
-
+print(f"Convert this number ---> {sorted_number} in roman numbers: ")
+user_number = input().upper()
 
 roman_number = change_number(sorted_number)
-print(roman_number)
+
+if user_number == roman_number:
+    print(f"\nGreat, your conversion, {roman_number}, is correct\n\n")
+else:
+    print(f"\nI am sorry, the conversion is: {roman_number}\n\n")
+
