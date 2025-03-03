@@ -108,10 +108,10 @@ for i in range(10):
     roman_number = change_number(sorted_number)
 
     if user_number == roman_number:
-        print(f"{green}Great, your conversion, {roman_number}, is correct!")
+        print(f"{bright_green}Great, your conversion, {roman_number}, is correct!")
         score += 1
     else:
-        print(f"{red}I am sorry, the conversion is: {roman_number}")
+        print(f"{bright_red}I am sorry, the conversion is: {roman_number}")
         score += 0
     actuale_score = (10 * score) / test_number
     print(f"Test number {test_number}/10 - - - Score: {round(actuale_score, 2)}")
