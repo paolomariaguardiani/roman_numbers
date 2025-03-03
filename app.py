@@ -1,3 +1,9 @@
+"""
+This little program helps to learn the coversion
+between numbers and roman numbers
+Author: Paolo Maria Guardiani
+"""
+
 import os
 import random
 
@@ -115,11 +121,3 @@ for i in range(10):
     input()
     os.system('cls')  # 'cls' on Windows; 'clear' on linux
 
-
-
-
-
-###### 
-# Link to the program in codeskulptor:
-# https://py3.codeskulptor.org/#user310_OTzwYjGQum_0.py
-######
