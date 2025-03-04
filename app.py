@@ -17,6 +17,7 @@ roman_thousands = ["M", "MM", "MMM"]
 
 score = 0
 test_number = 0
+selected_level = 0
 
 # List of colors and how to use it thanks to: 
 # https://stackoverflow.com/questions/19731053/change-shell-print-color-in-python-3-3-2
@@ -38,6 +39,7 @@ bright_magenta = "\033[0;95m"
 bright_cyan = "\033[0;96m"
 bright_white = "\033[0;97m"
 
+game_over = False
 
 def change_number(number):
     unit = 0
@@ -94,30 +96,70 @@ def change_number(number):
     
     return result
 
+def generate_number(level):
+    if level == 1: 
+        sorted_number = random.randint(1, 10)
+    elif level == 2:
+        sorted_number = random.randint(10, 100)
+    elif selected_level == 3:
+        sorted_number = random.randint(100, 999)
+    elif selected_level == 4:
+        sorted_number = random.randint(1000, 3999)
+    return sorted_number 
 
 
-for i in range(10):
-    sorted_number = random.randint(1, 3999)
-    
-    test_number += 1
-    os.system('cls')  # 'cls' on Windows; 'clear' on linux
-    print(f"{white}***************************************************")   
-    print(f"Convert this number ---> {sorted_number} <--- in roman numbers: ")
-    user_number = input().upper()
+print("Welcome to the game Conversion to Roman Numerals")
+print("Select the level of the game:")
+print("1 - Basic: from 1 to 10")
+print("2 - Esasy: from 10 to 100")
+print("3 - Difficult: from 100 to 999")
+print("4 - Very Difficult: from 1000 to 3999")
+print("\n0 - Quit the game\n")
 
-    roman_number = change_number(sorted_number)
+correct_selection = False
 
-    if user_number == roman_number:
-        print(f"{bright_green}Great, your conversion, {roman_number}, is correct!")
-        score += 1
+while(correct_selection == False):
+    selected_level = int(input("- - - > "))
+    if selected_level == 1: 
+        correct_selection = True
+    elif selected_level == 2:
+        correct_selection = True
+    elif selected_level == 3:
+        correct_selection = True
+    elif selected_level == 4:
+        correct_selection = True
+    elif selected_level == 0:
+        correct_selection = True
+        game_over = True
+        print("OK, By By!")
     else:
-        print(f"{bright_red}I am sorry, the conversion is: {roman_number}")
-        score += 0
-    actuale_score = (10 * score) / test_number
-    print(f"Test number {test_number}/10 - - - Score: {round(actuale_score, 2)}")
-    print(f"{white}***************************************************")
+        print("Please, enter a valid number")
 
-    print("\nPlease, press any key to continue ... ")
-    input()
-    os.system('cls')  # 'cls' on Windows; 'clear' on linux
+if (game_over == False):
+    for i in range(10):      
+        test_number += 1
+        os.system('cls')  # 'cls' on Windows; 'clear' on linux
+        sorted_number = generate_number(selected_level)
+        print(f"{white}***************************************************")   
+        print(f"Convert this number ---> {sorted_number} <--- in roman numbers: ")
+        user_number = input().upper()
 
+        roman_number = change_number(sorted_number)
+
+        if user_number == roman_number:
+            print(f"{bright_green}Great, your conversion, {roman_number}, is correct!")
+            score += 1
+        else:
+            print(f"{bright_red}I am sorry, the conversion is: {roman_number}")
+            score += 0
+        actuale_score = (10 * score) / test_number
+        print(f"Test number {test_number}/10 - - - Score: {round(actuale_score, 2)}")
+        print(f"{white}***************************************************")
+
+        print("\nPlease, press any key to continue ... ")
+        input()
+        os.system('cls')  # 'cls' on Windows; 'clear' on linux
+
+if test_number > 0: # so the game has started:
+    print("These are the results:")
+    print(f"You have done {test_number} test. Your score is: {round(actuale_score, 2)}")
