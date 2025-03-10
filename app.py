@@ -116,6 +116,7 @@ print("3 - Difficult: from 100 to 999")
 print("4 - Very Difficult: from 1000 to 3999")
 print("\n0 - Quit the game\n")
 
+
 selection = False
 
 while(selection == False):
@@ -129,7 +130,7 @@ while(selection == False):
     elif selected_level == 4:
         selection = True
     elif selected_level == 0:
-        correct_selection = True
+        selection = True
         game_over = True
         print("OK, By By!")
     else:
@@ -163,3 +164,4 @@ if (game_over == False):
 if test_number > 0: # so the game has started:
     print("These are the results:")
     print(f"You have done {test_number} test. Your score is: {round(actuale_score, 2)}")
+
